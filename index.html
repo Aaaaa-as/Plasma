@@ -13,15 +13,33 @@
 <body>
 
     <header>
-        <div class="plasma"> <img src="./plasma-logo.png" alt=""> Plasma</div>
-        <div class="header-links">
-            <a class="header-link" href="#">Search games</a>
-            <a class="header-link" href="#">Popular games</a>
-            <a class="header-link" href="#">Random game</a>
-        </div>
-        <div class="login-button">Log in</div>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="/img/plasma_logo.png" alt="logo" width="40" class="d-inline-block align-text-bottom">
+                    Navbar
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Search games</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Popular games</a>   
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Random games</a>   
+                    </li>
+                </ul>
+                </div>
+            </div>
+            </nav>
     </header>
     <main class="container">
+        <input type="text" name="Search" id="search" placeholder="Search" class="search-bar">
         <section>
             <h1>Currently popular</h1>
             <div class="carousel">
