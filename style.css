@@ -1,0 +1,121 @@
+header {
+    background-color: #4500BC;
+}
+.navbar {
+    background-color: #4500BC;
+    color: white;
+}
+
+main{
+    background-color: #2C006B;
+}
+
+footer {
+    background-color: #170055;
+}
+
+body{
+    width: auto;
+}
+
+.container{
+    max-width: 100vw;
+    padding-top: 43px;
+    padding-left: 61px;
+    padding-right: 61px;
+}
+
+.main-search{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 7px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.search-bar{
+    background-color: #3E00FF;
+    border: 3px solid #5023DB;
+    border-radius: 3px;
+    color: white;
+}
+
+section{
+    margin-top: 25px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.section-title{
+    color: white;
+}
+
+footer{
+    background-color: #170055;
+    min-height: 100px;
+}
+
+.interest-list{
+    background-color: #20004C54;
+    border: 4px solid #000000;
+    border-radius: 17px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-list-item{
+    background-color: #230053;
+    border: 3px solid #470068;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 0 5px;
+    width: 100%;
+}
+
+
+
+.game-name{
+    color: white;
+    font-size: 20px;
+}
+
+.tags{
+    color: #FFFFFF88;
+    font-size: 15px;
+}
+
+.paid-cost{
+    color: #7B00FF;
+    font-size: 28px;
+}
+
+.free-cost{
+    color: white;
+    font-size: 28px;
+}
+
+.more-btn{
+    background-color: #230053;
+    border: 3px solid #470068;
+    border-radius: 9px;
+    margin-bottom: 10px;
+    padding: 5 40px;
+    width: 200px;
+    color: white;
+}
+
+.navbar-colors{
+    --bs-emphasis-color-rgb: 255, 255, 255;
+}
+
+.cart-button{
+    background-color: #230053;
+    border: 3px solid #470068;
+    border-radius: 4px;
+    color: white;
+}
