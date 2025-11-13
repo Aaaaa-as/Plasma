@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+
 header {
     background-color: #4500BC;
 }
@@ -16,6 +18,10 @@ footer {
 
 body{
     width: auto;
+   font-family: "Source Sans 3", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .container{
@@ -67,6 +73,7 @@ footer{
 
 .game-list-item{
     background-color: #230053;
+    position: relative;
     border: 3px solid #470068;
     border-radius: 4px;
     display: flex;
@@ -118,4 +125,72 @@ footer{
     border: 3px solid #470068;
     border-radius: 4px;
     color: white;
+}
+
+#popularCarousel{
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.carousel-item{
+        width: 100%;
+        aspect-ratio: 16/9;
+}
+
+
+.game-logo{
+    width: 21px;
+    height: 21px;
+}
+
+
+.add-to-cart{
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    height: 21px;
+    width: 21px;
+    background-color: #7B00FF;
+    color: #fff;
+    border: 2px solid #470068;
+    border-radius: 2px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.game-list-item:hover>.add-to-cart{
+    display: flex;
+}
+
+main{
+    min-height: 100vh;
+}
+
+
+.in-cart-list{
+    margin-top: 30px;
+}
+
+
+.remove-from-cart{
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    height: 21px;
+    width: 21px;
+    background-color: #7B00FF;
+    color: #fff;
+    border: 2px solid #470068;
+    border-radius: 2px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.game-list-item:hover>.remove-from-cart{
+    display: flex;
 }
