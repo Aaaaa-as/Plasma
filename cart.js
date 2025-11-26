@@ -33,6 +33,7 @@ let theme = getCookieValue('theme')
 setTheme(theme)
 
 themeBtn.addEventListener("click", () => {
+    //debugger
     document.body.classList.toggle('light-theme'); // Перемикаємо клас теми
     if (theme == 'light') {
         theme = 'dark'
@@ -55,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
         element.classList.add('show');
     });
 });
+
 
 
 
@@ -82,7 +84,7 @@ function getInterestListItemHTML(product) {
                     <span class="tags">${productData.tags.join(',')}</span>
                     <span class="${productData.cost == "FREE" ? "free" : "paid"}-cost">${productData.cost == "FREE" ? "FREE" : productData.cost+" $"}</span>
                 </div>
-                <div class="add-to-cart" product=${product}><i class="bi bi-plus" product=${product}></i></div>
+                <div class="remove-from-cart" product=${product}><i class="bi bi-dash" product=${product}></i></div>
             </div>
     `
     
@@ -110,19 +112,8 @@ getProducts().then(function (p) {
 
     products = p;
 
-    let interest_list = document.querySelector('.interest-list');
-    for (let v in p.games) {
-        interest_list.innerHTML += getInterestListItemHTML(v);   
-    }
+    cart = new ShoppingCart();
 
-    // Отримуємо всі кнопки "Купити" на сторінці
-    let buyButtons = document.querySelectorAll('.interest-list .add-to-cart');
-    // Навішуємо обробник подій на кожну кнопку "Купити"
-    if (buyButtons) {
-        buyButtons.forEach(function (button) {
-            button.addEventListener('click', removeFromCart);
-        });
-    }
 })
 
 
@@ -141,7 +132,14 @@ class ShoppingCart {
     // Додавання товару до кошика
     addItem(item) {
         if (!this.items.has(item)) {
-            this.items.add(item); // Якщо товар вже є, збільшуємо його кількість на одиницю
+            this.items.add(item); 
+        }
+        this.saveCartToCookies();
+    }
+
+    removeItem(item) {
+        if (this.items.has(item)) {
+            this.items.delete(item); 
         }
         this.saveCartToCookies();
     }
@@ -154,6 +152,29 @@ class ShoppingCart {
     saveCartToCookies() {
         let cartJSON = JSON.stringify(Array.from(this.items));
         document.cookie = `cart=${cartJSON}; max-age=${60 * 60 * 24 * 7}; path=/`;
+
+        let in_cart_list = document.querySelector('.in-cart-list');
+        let buyButtons = document.querySelectorAll('.in-cart-list .remove-from-cart');
+        if (buyButtons) {
+            buyButtons.forEach(function (button) {
+                button.removeEventListener('click', removeFromCart);
+            });
+        }
+        in_cart_list.innerHTML = '';
+
+        for (let v of this.items) {
+            in_cart_list.innerHTML += getInterestListItemHTML(v);   
+        }
+
+        // Отримуємо всі кнопки "Купити" на сторінці
+        buyButtons = document.querySelectorAll('.in-cart-list .remove-from-cart');
+        // Навішуємо обробник подій на кожну кнопку "Купити"
+        if (buyButtons) {
+            buyButtons.forEach(function (button) {
+                button.addEventListener('click', removeFromCart);
+            });
+        }
+        this.calculateTotal()
     }
 
 
@@ -163,13 +184,38 @@ class ShoppingCart {
         if (cartCookie && cartCookie !== '') {
             this.items = new Set(JSON.parse(cartCookie));
         }
+        let in_cart_list = document.querySelector('.in-cart-list');
+        let buyButtons = document.querySelectorAll('.in-cart-list .remove-from-cart');
+        if (buyButtons) {
+            buyButtons.forEach(function (button) {
+                button.removeEventListener('click', removeFromCart);
+            });
+        }
+        in_cart_list.innerHTML = '';
+
+        for (let v of this.items) {
+            in_cart_list.innerHTML += getInterestListItemHTML(v);   
+        }
+
+        // Отримуємо всі кнопки "Купити" на сторінці
+        buyButtons = document.querySelectorAll('.in-cart-list .remove-from-cart');
+        // Навішуємо обробник подій на кожну кнопку "Купити"
+        if (buyButtons) {
+            buyButtons.forEach(function (button) {
+                button.addEventListener('click', removeFromCart);
+            });
+        }
+        this.calculateTotal()
+
     }
     // Обчислення загальної вартості товарів у кошику
     calculateTotal() {
+        
         let total = 0;
         for (let v of this.items) { // проходимося по всіх ключах об'єкта this.items
-            total += products[v].cost == "FREE" ? 0 : products[v].cost; // рахуємо вартість усіх товарів
+            total += products.games[v].cost == "FREE" ? 0 : +products.games[v].cost; // рахуємо вартість усіх товарів
         }
+        totalCost.innerText = total.toFixed(2);
         return total;
     }
 }
@@ -177,8 +223,7 @@ class ShoppingCart {
 let products;
 
 
-
-let cart = new ShoppingCart();
+let cart ;
 
 // Функція для додавання товару до кошика при кліку на кнопку "Купити"
 function removeFromCart(event) {
@@ -189,7 +234,7 @@ function removeFromCart(event) {
 
 
     // Додаємо товар до кошика
-    cart.addItem(product);
+    cart.removeItem(product);
     console.log(cart);
 }
 

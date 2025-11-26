@@ -16,9 +16,9 @@
     <header>
         <nav class="navbar-colors navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="/">
                     <img src="/img/plasma_logo.png" alt="logo" width="40" class="d-inline-block align-text-bottom logo">
-                    Navbar
+                    Plasma
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -35,6 +35,7 @@
                         <a class="nav-link" href="#">Random games</a>   
                     </li>
                 </ul>
+                <button id="themeToggle"><i class="bi bi-brightness-high"></i></button>
                 </div>
             </div>
             </nav>
@@ -42,7 +43,7 @@
     <main class="container">
         <div class="main-search">
             <input type="text" name="Search" id="search" placeholder="Search" class="search-bar">
-            <button class="cart-button"> <i class="bi bi-cart"></i> Cart</button>
+            <a href="cart.html" class="cart-button"> <i class="bi bi-cart"></i> Cart</a>
         </div>
         <section>
             <h1 class="section-title">Currently popular</h1>
@@ -86,127 +87,7 @@
         <section>
             <h1 class="section-title">You may be interested in</h1>
             <div class="interest-list">
-            <div class="game-list-item">
-                <div class="game-list-content">
-                    <img src="https://logos-world.net/wp-content/uploads/2023/02/Terraria-Logo-2011.png" class="align-text-bottom game-logo" alt="Terraria">
-                    <span class="game-name">Terraria</span>
-                </div>
-                <div class="game-list-content">
-                    <span class="tags">sandbox,2D,crafting,exploration,multiplayer</span>
-                    <span class="paid-cost">9.99 $</span>
-                </div>
-                <div class="add-to-cart"><i class="bi bi-plus"></i></div>
-            </div>
-
-            <div class="game-list-item">
-                <div class="game-list-content">
-                    <img src="https://upload.wikimedia.org/wikipedia/fr/7/73/Cave_Story%2B_Logo.png" class="align-text-bottom game-logo" alt="Cave Story">
-                    <span class="game-name">Cave Story+</span>
-                </div>
-                <div class="game-list-content">
-                    <span class="tags">platformer,metroidvania,retro,story,pixel</span>
-                    <span class="free-cost">FREE</span>
-                </div>
-                <div class="add-to-cart"><i class="bi bi-plus"></i></div>
-            </div>
-
-            <div class="game-list-item">
-                <div class="game-list-content">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/13/Hades_logo.png" class="align-text-bottom game-logo" alt="Hades">
-                    <span class="game-name">Hades</span>
-                </div>
-                <div class="game-list-content">
-                    <span class="tags">roguelike,action,greek,gods,story</span>
-                    <span class="paid-cost">24.99 $</span>
-                </div>
-                <div class="add-to-cart"><i class="bi bi-plus"></i></div>
-            </div>
-
-            <div class="game-list-item">
-                <div class="game-list-content">
-                    <img src="https://stardewvalley.net/wp-content/uploads/2017/12/main_logo.png" class="align-text-bottom game-logo" alt="Stardew Valley">
-                    <span class="game-name">Stardew Valley</span>
-                </div>
-                <div class="game-list-content">
-                    <span class="tags">farming,life-sim,pixel,rpg,relaxing</span>
-                    <span class="paid-cost">14.99 $</span>
-                </div>
-                <div class="add-to-cart"><i class="bi bi-plus"></i></div>
-            </div>
-
-            <div class="game-list-item">
-                <div class="game-list-content">
-                    <img src="https://logos-world.net/wp-content/uploads/2023/05/Undertale-Logo.png" class="align-text-bottom game-logo" alt="Undertale">
-                    <span class="game-name">Undertale</span>
-                </div>
-                <div class="game-list-content">
-                    <span class="tags">rpg,story,retro,pacifist,indie</span>
-                    <span class="paid-cost">9.99 $</span>
-                </div>
-                <div class="add-to-cart"><i class="bi bi-plus"></i></div>
-            </div>
-
-            <div class="game-list-item">
-                <div class="game-list-content">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Hollow_Knight_first_cover_art.webp/274px-Hollow_Knight_first_cover_art.webp.png" class="align-text-bottom game-logo" alt="Hollow Knight">
-                    <span class="game-name">Hollow Knight</span>
-                </div>
-                <div class="game-list-content">
-                    <span class="tags">metroidvania,action,2D,dark,fantasy</span>
-                    <span class="paid-cost">14.99 $</span>
-                </div>
-                <div class="add-to-cart"><i class="bi bi-plus"></i></div>
-            </div>
-
-            <div class="game-list-item">
-                <div class="game-list-content">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Celeste_video_game_logo.png" class="align-text-bottom game-logo" alt="Celeste">
-                    <span class="game-name">Celeste</span>
-                </div>
-                <div class="game-list-content">
-                    <span class="tags">platformer,precision,story,mental-health,pixel</span>
-                    <span class="paid-cost">19.99 $</span>
-                </div>
-                <div class="add-to-cart"><i class="bi bi-plus"></i></div>
-            </div>
-
-            <div class="game-list-item">
-                <div class="game-list-content">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Dead_Cells_logo_red.jpg" class="align-text-bottom game-logo" alt="Dead Cells">
-                    <span class="game-name">Dead Cells</span>
-                </div>
-                <div class="game-list-content">
-                    <span class="tags">roguelike,action,platformer,metroidvania,pixel</span>
-                    <span class="paid-cost">24.99 $</span>
-                </div>
-                <div class="add-to-cart"><i class="bi bi-plus"></i></div>
-            </div>
-
-            <div class="game-list-item">
-                <div class="game-list-content">
-                    <img src="https://www.humblegames.com/wp-content/uploads/2020/04/Game-Logo-Slay-the-Spire.png" class="align-text-bottom game-logo" alt="Slay the Spire">
-                    <span class="game-name">Slay the Spire</span>
-                </div>
-                <div class="game-list-content">
-                    <span class="tags">cards,roguelike,strategy,turn-based,deckbuilder</span>
-                    <span class="paid-cost">24.99 $</span>
-                </div>
-                <div class="add-to-cart"><i class="bi bi-plus"></i></div>
-            </div>
-
-            <div class="game-list-item">
-                <div class="game-list-content">
-                    <img src="https://upload.wikimedia.org/wikipedia/ru/8/8c/Factorio_logo.png" class="align-text-bottom game-logo" alt="Factorio">
-                    <span class="game-name">Factorio</span>
-                </div>
-                <div class="game-list-content">
-                    <span class="tags">automation,base-building,crafting,engineering,simulation</span>
-                    <span class="paid-cost">35.00 $</span>
-                </div>
-                <div class="add-to-cart"><i class="bi bi-plus"></i></div>
-            </div>
-
-            <button class="more-btn">See more</button>
+            
         </div>
 
         </section>
