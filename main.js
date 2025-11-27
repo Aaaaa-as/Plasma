@@ -29,6 +29,7 @@ function setTheme(theme) {
     }
 }
 
+
 let theme = getCookieValue('theme')
 setTheme(theme)
 
@@ -41,7 +42,7 @@ themeBtn.addEventListener("click", () => {
     }
     setTheme(theme)
     // Зберігаємо JSON рядок у кукі
-    document.cookie = `theme="${theme}; max-age=${60 * 60 * 24 * 7}"`;
+    document.cookie = `theme=${theme}; max-age=${60 * 60 * 24 * 7}"`;
     path="/";
 }) 
 

@@ -241,3 +241,8 @@ function removeFromCart(event) {
 
 let interest_list = document.querySelector('.interest-list');
 
+
+submit_payment.addEventListener('click', () => {
+    cart.items.clear();
+    cart.saveCartToCookies();
+})
