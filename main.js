@@ -121,7 +121,7 @@ getProducts().then(function (p) {
     // Навішуємо обробник подій на кожну кнопку "Купити"
     if (buyButtons) {
         buyButtons.forEach(function (button) {
-            button.addEventListener('click', removeFromCart);
+            button.addEventListener('click', addToCart);
         });
     }
 })
@@ -182,7 +182,7 @@ let products;
 let cart = new ShoppingCart();
 
 // Функція для додавання товару до кошика при кліку на кнопку "Купити"
-function removeFromCart(event) {
+function addToCart(event) {
     
     // Отримуємо дані про товар з data-атрибута кнопки
     const productData = event.target.getAttribute('product');
